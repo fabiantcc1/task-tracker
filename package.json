@@ -1,0 +1,11 @@
+{
+  "name": "task-tracker",
+  "version": "1.0.0",
+  "description": "CLI application to track and manage your task. You will add your task, mark them as in progress and mark them as done",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fabian Montaño",
+  "license": "ISC"
+}
