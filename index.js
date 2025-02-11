@@ -70,6 +70,31 @@ function add(body) {
     console.log(`Task added successfully (ID: ${newTask.id})`);
 }
 
+function update(body) {
+    const tasks = JSON.parse(readTaskJSON());
+    const idTask = parseInt(body[0], 10);
+    const task = body[1];
+
+    if (typeof idTask !== 'number' || isNaN(idTask)) {
+        throw new Error('ID must be a number');
+    }
+
+    if (task === '' || task === undefined || task === null) {
+        throw new Error("Task can't be empty");
+    }
+
+    const taskToUpdate = tasks.find(task => task.id === idTask);
+    if (!taskToUpdate) {
+        throw new Error('Task to update not found');
+    }
+
+    taskToUpdate.description = task;
+    taskToUpdate.updatedAt = new Date();
+    writeTaskJSON(tasks);
+
+    console.log(`Task updated successfully (ID: ${idTask})`);
+}
+
 function readUserInput(arg) {
     try {
         const command = arg[2];
@@ -78,6 +103,9 @@ function readUserInput(arg) {
         switch (command) {
             case 'add':
                 add(body);
+                break;
+            case 'update':
+                update(body);
                 break;
             default:
                 throw new Error('Command not found');
