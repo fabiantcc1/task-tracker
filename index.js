@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const { json } = require('stream/consumers');
 
 function readIdHandler() {
     const idFileName = 'id_tasks_handler.json';
