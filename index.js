@@ -94,6 +94,25 @@ function update(body) {
     console.log(`Task updated successfully (ID: ${idTask})`);
 }
 
+function remove(body) {
+    const tasks = JSON.parse(readTaskJSON());
+    const idTask = parseInt(body[0], 10);
+
+    if (typeof idTask !== 'number' || isNaN(idTask)) {
+        throw new Error('ID must be a number');
+    }
+
+    const taskToRemove = tasks.findIndex(task => task.id === idTask);
+    if (taskToRemove === -1) {
+        throw new Error('Task to remove not found');
+    }
+
+    tasks.splice(taskToRemove, 1);
+    writeTaskJSON(tasks);
+
+    console.log(`Task removed successfully (ID: ${idTask})`);
+}
+
 function readUserInput(arg) {
     try {
         const command = arg[2];
@@ -105,6 +124,9 @@ function readUserInput(arg) {
                 break;
             case 'update':
                 update(body);
+                break;
+            case 'delete':
+                remove(body);
                 break;
             default:
                 throw new Error('Command not found');
