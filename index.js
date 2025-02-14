@@ -133,6 +133,26 @@ function markAsInProgress(body) {
     console.log(`Task "${task.description}" marked as IN PROGRESS (ID: ${idTask})`);
 }
 
+function markAsDone(body) {
+    const tasks = JSON.parse(readTaskJSON());
+    const idTask = parseInt(body[0], 10);
+
+    if (typeof idTask !== 'number' || isNaN(idTask)) {
+        throw new Error('Task ID must be a number');
+    }
+
+    const task = tasks.find(task => task.id === idTask);
+    if (!task) {
+        throw new Error('Task not found');
+    }
+
+    task.status = 'done';
+    task.updatedAt = new Date();
+    writeTaskJSON(tasks);
+
+    console.log(`Task "${task.description}" marked as DONE (ID: ${idTask})`);
+}
+
 function listHandler(body) {
     if (body.length === 0) {
         listAll();
@@ -233,6 +253,10 @@ function readUserInput(arg) {
 
             case 'mark-in-progress':
                 markAsInProgress(body);
+                break;
+
+            case 'mark-done':
+                markAsDone(body);
                 break;
 
             default:
