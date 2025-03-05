@@ -2,9 +2,9 @@
 `Task tracker` is a tool that helps you handle your daily activities.
 
 ## Functionalities
-✔️ Add, Update and Delete tasks.
-✔️ Manage your tasks by marking them as `in-progress` or `done`.
-✔️ List all your tasks, with the possibility of filtering them by `to-do`, `in-progress` or `done`.
+- ✔️ Add, Update and Delete tasks.
+- ✔️ Manage your tasks by marking them as `in-progress` or `done`.
+- ✔️ List all your tasks, with the possibility of filtering them by `to-do`, `in-progress` or `done`.
 
 ## Installation
  - Clone the repository in your local machine.
