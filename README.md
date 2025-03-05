@@ -9,7 +9,7 @@
 ## Installation
  - Clone the repository in your local machine.
 ```bash
-git clone --depth=1 ADD URL
+git clone --depth=1 git@github.com:fabiantcc1/task-tracker.git
 ```
 
 ## Usage
