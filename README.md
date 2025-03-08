@@ -1,5 +1,5 @@
 # Task tracker
-`Task tracker` is a tool that helps you handle your daily activities.
+[Task tracker](https://roadmap.sh/projects/task-tracker) is a CLI tool that helps you handle your daily activities.
 
 ## Functionalities
 - ✔️ Add, Update and Delete tasks.
